@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth scroll-pt-20">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +21,7 @@
                     colors: {
                         background: '#FAF7F2',
                         body: '#2B1810',
+                        terracotta: '#D4763E',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -33,10 +34,198 @@
 </head>
 <body class="bg-background text-body font-sans antialiased min-h-screen">
 
+    <!-- Sticky Nav -->
+    <header class="fixed top-0 left-0 right-0 bg-background/90 backdrop-blur-md z-50 border-b border-body/5">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="font-serif text-3xl tracking-tight">Grind.</a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 font-medium">
+                <a href="#about" class="hover:text-terracotta transition-colors duration-300">About</a>
+                <a href="#menu" class="hover:text-terracotta transition-colors duration-300">Menu</a>
+                <a href="#visit" class="hover:text-terracotta transition-colors duration-300">Visit</a>
+            </nav>
+            
+            <!-- Mobile Hamburger -->
+            <button id="mobile-menu-btn" class="md:hidden flex flex-col justify-center items-end w-8 h-8 space-y-1.5 focus:outline-none">
+                <span class="w-6 h-0.5 bg-body rounded-full transition-transform duration-300 origin-center"></span>
+                <span class="w-6 h-0.5 bg-body rounded-full transition-opacity duration-300"></span>
+                <span class="w-6 h-0.5 bg-body rounded-full transition-transform duration-300 origin-center"></span>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-background/95 backdrop-blur-md border-b border-body/5 py-6 px-6 shadow-xl">
+            <nav class="flex flex-col space-y-6 font-medium text-xl">
+                <a href="#about" class="mobile-link hover:text-terracotta transition-colors duration-300">About</a>
+                <a href="#menu" class="mobile-link hover:text-terracotta transition-colors duration-300">Menu</a>
+                <a href="#visit" class="mobile-link hover:text-terracotta transition-colors duration-300">Visit</a>
+            </nav>
+        </div>
+    </header>
+
     <!-- Main Container -->
     <main class="max-w-6xl mx-auto px-6">
-        <!-- Content goes here -->
+        
+        <!-- Hero Section -->
+        <section class="max-w-4xl min-h-[90vh] md:min-h-screen flex flex-col justify-center py-20">
+            <!-- Eyebrow -->
+            <p class="text-sm md:text-base tracking-widest uppercase mb-6 font-medium opacity-80">
+                A coffee shop for people who care about details.
+            </p>
+            
+            <!-- Headline -->
+            <h1 class="font-serif text-7xl sm:text-8xl md:text-9xl lg:text-[11rem] leading-none mb-8 -ml-1 md:-ml-2 tracking-tight">
+                Grind.
+            </h1>
+            
+            <!-- Subheadline -->
+            <p class="text-xl md:text-2xl text-body/80 mb-12 max-w-xl leading-relaxed">
+                Single-origin coffee. Considered interiors. Free wifi that actually works.
+            </p>
+            
+            <!-- CTAs -->
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-8">
+                <a href="#visit" class="inline-flex items-center justify-center px-8 py-4 bg-terracotta text-white font-medium rounded-full hover:bg-terracotta/90 transition-colors duration-300">
+                    Find us
+                </a>
+                <a href="#menu" class="inline-flex items-center text-lg font-medium hover:text-terracotta transition-colors duration-300 underline underline-offset-8 decoration-body/30 hover:decoration-terracotta">
+                    See the menu
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 border-t border-body/10">
+            <h2 class="font-serif text-5xl mb-12">Why Grind</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
+                <div class="text-lg md:text-xl text-body/80 leading-relaxed">
+                    <p>
+                        We believe that a great coffee shop is more than just good beans—it's about the entire experience. From our ethically sourced, single-origin roasts to our carefully designed interiors, every detail is considered to provide the perfect environment for both deep work and meaningful conversations.
+                    </p>
+                </div>
+                <div>
+                    <ul class="space-y-6 text-lg md:text-xl font-medium">
+                        <li class="flex items-start">
+                            <span class="text-terracotta mr-4 mt-1">•</span>
+                            <span>Ethically sourced, single-origin beans</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-terracotta mr-4 mt-1">•</span>
+                            <span>Designed for long working sessions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-terracotta mr-4 mt-1">•</span>
+                            <span>Quiet hours, 2pm–5pm, Mon–Fri</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section id="menu" class="py-24 border-t border-body/10">
+            <h2 class="font-serif text-5xl mb-16 text-center">The Menu</h2>
+            
+            <div class="max-w-2xl mx-auto space-y-6 text-lg md:text-xl">
+                <!-- Menu Item -->
+                <div class="flex items-baseline">
+                    <span class="font-medium tracking-wide">Espresso</span>
+                    <div class="flex-grow border-b-2 border-dotted border-body/20 mx-4"></div>
+                    <span class="font-serif text-2xl shrink-0">₹180</span>
+                </div>
+                <!-- Menu Item -->
+                <div class="flex items-baseline">
+                    <span class="font-medium tracking-wide">Flat White</span>
+                    <div class="flex-grow border-b-2 border-dotted border-body/20 mx-4"></div>
+                    <span class="font-serif text-2xl shrink-0">₹220</span>
+                </div>
+                <!-- Menu Item -->
+                <div class="flex items-baseline">
+                    <span class="font-medium tracking-wide">Pour Over</span>
+                    <div class="flex-grow border-b-2 border-dotted border-body/20 mx-4"></div>
+                    <span class="font-serif text-2xl shrink-0">₹280</span>
+                </div>
+                <!-- Menu Item -->
+                <div class="flex items-baseline">
+                    <span class="font-medium tracking-wide">Cold Brew</span>
+                    <div class="flex-grow border-b-2 border-dotted border-body/20 mx-4"></div>
+                    <span class="font-serif text-2xl shrink-0">₹240</span>
+                </div>
+                <!-- Menu Item -->
+                <div class="flex items-baseline">
+                    <span class="font-medium tracking-wide">Matcha Latte</span>
+                    <div class="flex-grow border-b-2 border-dotted border-body/20 mx-4"></div>
+                    <span class="font-serif text-2xl shrink-0">₹260</span>
+                </div>
+                <!-- Menu Item -->
+                <div class="flex items-baseline">
+                    <span class="font-medium tracking-wide">Affogato</span>
+                    <div class="flex-grow border-b-2 border-dotted border-body/20 mx-4"></div>
+                    <span class="font-serif text-2xl shrink-0">₹320</span>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center text-body/60 italic">
+                <p>Prices include GST. Beans change weekly.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="visit" class="py-24 border-t border-body/10">
+            <h2 class="font-serif text-5xl mb-12">Come find us</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+                <div>
+                    <p class="text-xl md:text-2xl text-body/80 leading-relaxed mb-10">
+                        12, Design District, 2nd Floor.<br>
+                        Open 8am–8pm, closed Wednesdays.
+                    </p>
+                    <div class="flex gap-8 text-lg font-medium">
+                        <a href="#" class="hover:text-terracotta transition-colors duration-300 underline underline-offset-4 decoration-body/30 hover:decoration-terracotta">Instagram</a>
+                        <a href="#" class="hover:text-terracotta transition-colors duration-300 underline underline-offset-4 decoration-body/30 hover:decoration-terracotta">Are.na</a>
+                    </div>
+                </div>
+                <!-- Map Placeholder -->
+                <div class="bg-stone-200 aspect-video rounded-2xl flex items-center justify-center text-body/40 font-medium text-lg uppercase tracking-widest w-full shadow-inner">
+                    Map
+                </div>
+            </div>
+        </section>
+        
     </main>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const links = document.querySelectorAll('.mobile-link');
+            const spans = btn.querySelectorAll('span');
+            
+            function toggleMenu() {
+                const isHidden = menu.classList.contains('hidden');
+                if (isHidden) {
+                    menu.classList.remove('hidden');
+                    spans[0].classList.add('rotate-45', 'translate-y-2');
+                    spans[1].classList.add('opacity-0');
+                    spans[2].classList.add('-rotate-45', '-translate-y-2');
+                } else {
+                    menu.classList.add('hidden');
+                    spans[0].classList.remove('rotate-45', 'translate-y-2');
+                    spans[1].classList.remove('opacity-0');
+                    spans[2].classList.remove('-rotate-45', '-translate-y-2');
+                }
+            }
+            
+            btn.addEventListener('click', toggleMenu);
+            
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!menu.classList.contains('hidden')) {
+                        toggleMenu();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
